@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   ansible-lint-job:
-    name: Job to run ansible-lint
+    name: Ansible Lint Job
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -12,7 +12,7 @@ jobs:
       
       - name: Run ansible-lint
         id: run-lint
-        uses: SatyamKumar3/action-ansible-lint@master
+        uses: SatyamKumar3/action-ansible-lint@main
         with:
           # repo-name: "${{ github.event.repository.name }}"
           repo-name: "${{ github.workspace }}"
