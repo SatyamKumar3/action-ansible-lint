@@ -10,13 +10,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       
-      - name: Run ansible-lint 1
-        run: |
-          ansible-lint -p ${{ github.workspace }}
-      
-      - name: List files in the repository
-        run: |
-          ls ${{ github.workspace }}
+      # - name: List files in the repository
+      #   run: |
+      #     ls ${{ github.workspace }}
       
       - name: Run ansible-lint
         id: run-lint
