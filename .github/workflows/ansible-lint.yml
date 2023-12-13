@@ -7,16 +7,28 @@ jobs:
     name: Ansible Lint Job
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      # - name: Checkout
+      #   uses: actions/checkout@v4
       
       # - name: List files in the repository
       #   run: |
       #     ls ${{ github.workspace }}
+      
+      # - name: Run ansible-lint
+      #   id: run-lint
+      #   uses: SatyamKumar3/action-ansible-lint@main
+      #   with:
+      #     # repo-name: "${{ github.event.repository.name }}"
+      #     repo-name: "${{ github.workspace }}"
+      
+      - name: Print event details
+        run: echo "${{ toJson(github.event) }}"
       
       - name: Run ansible-lint
         id: run-lint
         uses: SatyamKumar3/action-ansible-lint@main
         with:
           # repo-name: "${{ github.event.repository.name }}"
-          repo-name: "${{ github.workspace }}"
+          # repo-name: "git@github.com:${{ GITHUB_REPOSITORY }}.git"
+          repo-name: "${{ GITHUB_REPOSITORY }}"
+        
