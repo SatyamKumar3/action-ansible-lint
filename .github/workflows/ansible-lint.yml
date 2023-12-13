@@ -21,8 +21,8 @@ jobs:
       #     # repo-name: "${{ github.event.repository.name }}"
       #     repo-name: "${{ github.workspace }}"
       
-      - name: Print event details
-        run: echo "${{ toJson(github.event) }}"
+      # - name: Print event details
+      #   run: echo "${{ toJson(github.event) }}"
       
       - name: Run ansible-lint
         id: run-lint
