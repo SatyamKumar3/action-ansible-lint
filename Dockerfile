@@ -1,6 +1,7 @@
 # FROM python:3-slim
 FROM python:3
 COPY linting.sh  /linting.sh
+COPY requirements.txt  /requirements.txt
 # COPY . .
 # RUN hostname --fqdn
 # RUN pwd
