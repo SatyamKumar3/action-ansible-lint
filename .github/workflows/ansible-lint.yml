@@ -7,31 +7,27 @@ jobs:
     name: Ansible Lint Job
     runs-on: ubuntu-latest
     steps:
-      # - name: Checkout
-      #   uses: actions/checkout@v4
-      
-      # - name: List files in the repository
-      #   run: |
-      #     ls ${{ github.workspace }}
-      
-      # - name: Run ansible-lint
-      #   id: run-lint
-      #   uses: SatyamKumar3/action-ansible-lint@main
-      #   with:
-      #     # repo-name: "${{ github.event.repository.name }}"
-      #     repo-name: "${{ github.workspace }}"
-      
-      # - name: Print event details
-      #   run: echo "${{ toJson(github.event) }}"
-      
       - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: List files in the repository
         run: |
-          # git clone git@github.com:${{ github.repository }}.git
-          repo_url="git@github.com:${{ github.repository }}.git"
-          echo "repo_url= $repo_url"
-          git clone $repo_url
-          repo_dir=${$repo_url#*/}
-          ls $repo_dir
+          ls ${{ github.workspace }}
+      
+      - name: Run ansible-lint
+        id: run-lint
+        uses: SatyamKumar3/action-ansible-lint@main
+        with:
+          # repo-name: "${{ github.event.repository.name }}"
+          repo-name: "${{ github.workspace }}"
+      
+      # - name: Checkout
+      #   run: |
+      #     repo_url="git@github.com:${{ github.repository }}.git"
+      #     echo "repo_url= $repo_url"
+      #     git clone $repo_url
+      #     repo_dir=${$repo_url#*/}
+      #     ls $repo_dir
 
       # - name: Run ansible-lint
       #   id: run-lint
