@@ -1,15 +1,5 @@
 name: 'Ansible Lint'
-description: 'Run ansible-lint against a repo'
-inputs:
-  repo_name:
-    description: 'Repo name against which ansible-lint is to be run'
-    required: true
-    # default: 'World'
-# outputs:
-#   lint-output:
-#     description: 'Output of ansible-lint command'
+description: 'Run ansible-lint against an Ansible repository'
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.repo_name }}

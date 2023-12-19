@@ -3,37 +3,14 @@ run-name: Ansible Lint - ${{ github.event.head_commit.message }}
 on: [push]
 
 jobs:
-  ansible-lint-job:
-    name: Ansible Lint Job
+  ansible-lint:
+    name: Ansible Lint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       
-      - name: List files in the repository
-        run: |
-          ls ${{ github.workspace }}
-      
       - name: Run ansible-lint
         id: run-lint
         uses: SatyamKumar3/action-ansible-lint@main
-        with:
-          # repo-name: "${{ github.event.repository.name }}"
-          repo-name: "${{ github.workspace }}"
       
-      # - name: Checkout
-      #   run: |
-      #     repo_url="git@github.com:${{ github.repository }}.git"
-      #     echo "repo_url= $repo_url"
-      #     git clone $repo_url
-      #     repo_dir=${$repo_url#*/}
-      #     ls $repo_dir
-
-      # - name: Run ansible-lint
-      #   id: run-lint
-      #   uses: SatyamKumar3/action-ansible-lint@main
-      #   with:
-      #     # repo-name: "${{ github.event.repository.name }}"
-      #     # repo-name: "git@github.com:${{ GITHUB_REPOSITORY }}.git"
-      #     repo-name: "${{ github.repository }}"
-        
