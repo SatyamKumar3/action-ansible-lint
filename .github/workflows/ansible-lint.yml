@@ -9,6 +9,10 @@ jobs:
     name: Ansible Lint
     runs-on: ubuntu-latest
     steps:
+      - name: Print event details
+        run: |
+          echo "${{ toJSON(github.event) }}"
+      
       - name: Checkout
         uses: actions/checkout@v4
       
