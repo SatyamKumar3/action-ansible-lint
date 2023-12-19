@@ -1,5 +1,5 @@
 name: Ansible Lint
-run-name: Ansible Lint - ${{ github.event.head_commit.message }}
+# run-name: Ansible Lint
 on:
   pull_request:
     branches: main
